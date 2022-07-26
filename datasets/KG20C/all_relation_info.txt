@@ -1,0 +1,6 @@
+id
+author_in_affiliation
+author_write_paper
+paper_cite_paper
+paper_in_domain
+paper_in_venue

@@ -1,0 +1,20 @@
+{
+  "Note": [
+    "This config file stores all relevant hyperparams configurations in a dictionary (numbered list) format.",
+    "Each numbered configuration specify how each batch of experiment run by a list of values for each hparam.",
+    "When a hparam has multiple values, they will be crossed for (random) grid search in many experiments.",
+    "When every hparam has only one value, there is a single configuration for a single experiment"
+  ],
+
+  "cid001_wn18rr_example": {
+    "Note": ["Example of random hyperparams search on multiple GPUs in parallel for MEI/MEIM on WN18RR dataset",
+    "Run with: python main.py --config_id cid001_wn18rr_example --gpu 0 1 --num_gpu_threads 2 --max_num_exp -1 --model MEI --in_path ../datasets/wn18rr/ --out_path ../result/temp --seed 7 --K 3 --Ce 100 --Cr 100 --core_tensor nonshared --sampling kvsall --model_inv 0 --loss_mode softmax-cross-entropy --batch_size 1024 --max_epoch 1000 --opt_method adam --lr 3e-3 --lr_scheduler exp --lr_decay .99775 --mapping_constraint orthogonal --lambda_ortho 1e-1 --norm bn --n_w 0 --n_r 0 --n_mr 0 --n_h 1 --n_mrh 1 --n_t 0 --n_sepK 1"],
+
+    "droprate_w":         [0.0],
+    "droprate_r":         [0.0],
+    "droprate_mr":        [0.0],
+    "droprate_h":         [0.0, 0.70],
+    "droprate_mrh":       [0.0, 0.70],
+    "droprate_t":         [0.0]
+  }
+}

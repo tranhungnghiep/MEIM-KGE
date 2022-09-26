@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Author: Hung-Nghiep Tran
+
 import os
 import time
 import copy

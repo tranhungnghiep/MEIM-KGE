@@ -189,7 +189,7 @@ def get_config(parser, arg_str=None):
     return config
 
 
-def load_config(config, config_file='./config.json'):
+def load_config(config, config_file='../config.json'):
     """
     z: 0; a: 1, 2; b: 3, 4 -> first z0a1b3; then z0a1b4, z0a2b3, z0a2b4
     Use itertools.product to make all combination of all hparams values
@@ -339,7 +339,7 @@ def main():
     # these configs can be then sampled by grid/random/bayesian,
     # call exp in subprocess with selected config
     # ===============
-    config_list = load_config(config, config_file='./config.json')
+    config_list = load_config(config, config_file='../config.json')
     config_list = list(map(autoupdate_config, config_list))
 
     # random search

@@ -16,7 +16,7 @@ import random
 import numpy as np
 import torch
 
-from models import MEI, DistMult, CP, CPh, SimplE, ComplEx, Quaternion, W2V, W2Vh, Random
+from models import MEIM, MEI, DistMult, CP, CPh, SimplE, ComplEx, Quaternion, W2V, W2Vh, Random
 from experiments import Experiment
 import utils
 
@@ -30,7 +30,7 @@ def get_parser():
     parser = argparse.ArgumentParser()
 
     # Experiment
-    parser.add_argument('--model', default='MEI', type=str, help='the class name of the model for experiment')
+    parser.add_argument('--model', default='MEIM', type=str, help='the class name of the model for experiment')
     parser.add_argument('--device', default='cuda', type=str, help='cuda, cpu')
 
     parser.add_argument('--config_id', default='', type=str, help='name of an experiment group: "" (default single exp), cid000, cid001... (find configs from config.json, batch experiment)')
@@ -239,6 +239,7 @@ def load_config(config, config_file='../config.json'):
 def autoupdate_config(config):
     # supported model classes, map with config string by a dictionary
     model_dict = {
+        'MEIM': MEIM,
         'MEI': MEI,
         'DistMult': DistMult,
         'CP': CP,

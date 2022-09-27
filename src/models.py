@@ -477,6 +477,9 @@ class MEI(torch.nn.Module):
                     emb[:] = utils.minmaxnorm(emb, self.config.constrain_axis_rel)
 
 
+MEIM = MEI  # alias, MEIM is MEI iMproved with suitable configurations.
+
+
 class DistMult(MEI):
     def __init__(self, data, config):
         super().__init__(data, config)

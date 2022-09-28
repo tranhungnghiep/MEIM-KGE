@@ -1,6 +1,6 @@
 # MEIM: Multi-partition Embedding Interaction iMproved beyond block term tensor format
 
-This implements the MEIM knowledge graph embedding method in the paper [MEIM: Multi-partition Embedding Interaction Beyond Block Term Format for Efficient and Expressive Link Prediction]() (IJCAI 2022). MEIM introduces two new aspects beyond block term tensor format, namely independent core tensor for ensemble boosting effects and soft orthogonality for max-rank relational mapping. The code is optimized for high performance in PyTorch and demonstrates several important techniques in KGE.
+This implements the MEIM knowledge graph embedding method in the paper [MEIM: Multi-partition Embedding Interaction Beyond Block Term Format for Efficient and Expressive Link Prediction]() (IJCAI 2022). MEIM introduces two new aspects in addition to multi-partition embedding, namely independent core tensor for ensemble boosting effects and soft orthogonality for max-rank relational mapping. The code is optimized for high performance in PyTorch and demonstrates several important techniques in KGE.
 
 Knowledge graph embedding methods (KGE) aim to learn low-dimensional vector representations of entities and relations in knowledge graphs. The models take input in the format of triples (h, t, r) denoting head entity, tail entity, and relation, respectively, and output their embedding vectors as well as solving the link prediction task. For more information, please see our paper.
 

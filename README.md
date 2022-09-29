@@ -3,7 +3,7 @@
 ![MEIM architecture](./MEIM_architecture.png)
 ***Figure 1:** Architecture of MEIM with independent core tensors and max-rank mapping matrices in three different views: Tucker format, parameterized bilinear format, and neural network format.*
 
-This implements the MEIM knowledge graph embedding method in the paper [MEIM: Multi-partition Embedding Interaction Beyond Block Term Format for Efficient and Expressive Link Prediction]() (IJCAI 2022). MEIM method introduces two new aspects, namely independent core tensor for ensemble boosting effects and soft orthogonality for max-rank relational mapping, in addition to multi-partition embedding in MEI method. The code is optimized for high performance in PyTorch and demonstrates several important techniques in KGE.
+This code implements the MEIM knowledge graph embedding method in the paper [MEIM: Multi-partition Embedding Interaction Beyond Block Term Format for Efficient and Expressive Link Prediction]() (IJCAI 2022). MEIM method introduces two new aspects, namely independent core tensor for ensemble boosting effects and soft orthogonality for max-rank relational mapping, in addition to multi-partition embedding in MEI method. The code is optimized for high performance in PyTorch and demonstrates several important techniques in KGE.
 
 Knowledge graph embedding methods (KGE) aim to learn low-dimensional vector representations of entities and relations in knowledge graphs. The models take input in the format of triples (h, t, r) denoting head entity, tail entity, and relation, respectively, and output their embedding vectors as well as solving the link prediction task. For more information, please see our paper.
 

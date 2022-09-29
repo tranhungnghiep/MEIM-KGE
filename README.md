@@ -12,7 +12,7 @@ Knowledge graph embedding methods (KGE) aim to learn low-dimensional vector repr
 ## How to run
 Go to the source directory (`cd src/`) and run the following commands.
 
-### To reproduce MEIM
+### To reproduce MEIM:
 On WN18RR, MEIM 3x100:
 ```shell script
 python main.py --seed 7 --config_id "rep" --gpu 0 --model MEIM --in_path ../datasets/wn18rr/ --out_path ../result/ --K 3 --Ce 100 --Cr 100 --core_tensor nonshared --reuse_array torch1pin --sampling kvsall --loss_mode softmax-cross-entropy --batch_size 1024 --max_epoch 1000 --opt_method adam --amsgrad 0 --lr 3e-3 --lr_scheduler exp --lr_decay 0.99775 --lambda_ent 0.0 --lambda_rel 0.0 --lambda_params 0.0 --label_smooth 0.0 --constraint "" --to_constrain "" --mapping_constraint orthogonal --lambda_ortho 1e-1 --lambda_rowrelnorm 5e-5 --droprate_w 0.0 --droprate_r 0.0 --droprate_mr 0.0 --droprate_h 0.71 --droprate_mrh 0.67 --droprate_t 0.0 --norm bn --n_w 0 --n_r 0 --n_mr 0 --n_h 1 --n_mrh 1 --n_t 0 --n_sepK 1
@@ -26,7 +26,7 @@ On YAGO3-10, MEIM 5x100:
 python main.py --seed 7 --config_id "rep" --gpu 0 --model MEIM --in_path ../datasets/YAGO3-10/ --out_path ../result/ --K 5 --Ce 100 --Cr 100 --core_tensor nonshared --reuse_array torch1gpu --sampling 1vsall --loss_mode softmax-cross-entropy --batch_size 1024 --max_epoch 1000 --opt_method adam --amsgrad 1 --lr 3e-3 --lr_scheduler exp --lr_decay 0.995 --lambda_ent 0.0 --lambda_rel 0.0 --lambda_params 0.0 --label_smooth 0.0 --constraint "" --to_constrain "" --mapping_constraint orthogonal --lambda_ortho 1e-3 --lambda_rowrelnorm 0.0 --droprate_w 0.0 --droprate_r 0.0 --droprate_mr 0.0 --droprate_h 0.1 --droprate_mrh 0.15 --droprate_t 0.0 --norm bn --n_w 0 --n_r 0 --n_mr 0 --n_h 1 --n_mrh 1 --n_t 0 --n_sepK 0
 ```
 
-### To reproduce MEI with comparable sizes
+### To reproduce MEI with comparable sizes:
 On WN18RR, MEI 3x115:
 ```shell script
 python main.py --seed 7 --config_id "rep" --gpu 0 --model MEI --in_path ../datasets/wn18rr/ --out_path ../result/ --check_period 5 --K 3 --Ce 115 --Cr 115 --core_tensor shared --reuse_array torch1pin --sampling kvsall --loss_mode softmax-cross-entropy --batch_size 1024 --max_epoch 1000 --opt_method adam --amsgrad 0 --lr 3e-3 --lr_scheduler exp --lr_decay 0.99775 --lambda_ent 0.0 --lambda_rel 0.0 --lambda_params 0.0 --label_smooth 0.0 --constraint "" --to_constrain "" --mapping_constraint "" --lambda_ortho 0 --lambda_rowrelnorm 0 --droprate_w 0.0 --droprate_r 0.0 --droprate_mr 0.0 --droprate_h 0.71 --droprate_mrh 0.67 --droprate_t 0.0 --norm bn --n_w 0 --n_r 0 --n_mr 0 --n_h 1 --n_mrh 1 --n_t 0 --n_sepK 1

@@ -3,7 +3,7 @@
 ![MEIM architecture](./MEIM_architecture.png)
 ***Figure 1:** Architecture of MEIM with independent core tensors and max-rank mapping matrices in three different views: Tucker format, parameterized bilinear format, and neural network format.*
 
-This code implements the MEIM knowledge graph embedding method in the paper [MEIM: Multi-partition Embedding Interaction Beyond Block Term Format for Efficient and Expressive Link Prediction]() (IJCAI 2022). MEIM method introduces two new aspects, namely independent core tensor for ensemble boosting effects and soft orthogonality for max-rank relational mapping, in addition to multi-partition embedding in MEI method. The code is optimized for high performance in PyTorch and demonstrates several important techniques in KGE.
+This code implements the MEIM knowledge graph embedding method in the paper [MEIM: Multi-partition Embedding Interaction Beyond Block Term Format for Efficient and Expressive Link Prediction](https://arxiv.org/abs/2209.15597) (IJCAI 2022). MEIM method introduces two new aspects, namely independent core tensor for ensemble boosting effects and soft orthogonality for max-rank relational mapping, in addition to multi-partition embedding in MEI method. The code is optimized for high performance in PyTorch and demonstrates several important techniques in KGE.
 
 Knowledge graph embedding methods (KGE) aim to learn low-dimensional vector representations of entities and relations in knowledge graphs. The models take input in the format of triples (h, t, r) denoting head entity, tail entity, and relation, respectively, and output their embedding vectors as well as solving the link prediction task. For more information, please see our paper.
 
@@ -71,7 +71,7 @@ MEIM outperforms MEI, achieves new state-of-the-art results using quite small nu
 
 ## How to cite
 If you found this code or our work useful, please cite us.
-- *Hung Nghiep Tran and Atsuhiro Takasu. [MEIM: Multi-partition Embedding Interaction Beyond Block Term Format for Efficient and Expressive Link Prediction](). In Proceedings of the International Joint Conference on Artificial Intelligence (IJCAI), 2022.*  
+- *Hung Nghiep Tran and Atsuhiro Takasu. [MEIM: Multi-partition Embedding Interaction Beyond Block Term Format for Efficient and Expressive Link Prediction](https://arxiv.org/abs/2209.15597). In Proceedings of the International Joint Conference on Artificial Intelligence (IJCAI), 2022.*  
   ```
   @inproceedings{tran_meimmultipartitionembedding_2022,
     title = {{MEIM}: {Multi}-partition {Embedding} {Interaction} {Beyond} {Block} {Term} {Format} for {Efficient} and {Expressive} {Link} {Prediction}},
@@ -79,6 +79,7 @@ If you found this code or our work useful, please cite us.
     author = {Tran, Hung Nghiep and Takasu, Atsuhiro},
     year = {2022},
     pages = {2262--2269},
+    url = {https://arxiv.org/abs/2209.15597},
   }
   ```
 - *Hung Nghiep Tran and Atsuhiro Takasu. [Multi-Partition Embedding Interaction with Block Term Format for Knowledge Graph Completion](https://arxiv.org/abs/2006.16365). In Proceedings of the European Conference on Artificial Intelligence (ECAI), 2020.*  

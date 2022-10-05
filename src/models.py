@@ -5,11 +5,11 @@
 """Reference:
 Hung-Nghiep Tran and Atsuhiro Takasu (2020),
 Multi-Partition Embedding Interaction with Block Term Format for Knowledge Graph Completion,
-Proceedings of the European Conference on Artificial Intelligence (ECAI'20).
+In Proceedings of the European Conference on Artificial Intelligence (ECAI'20).
 
 Hung-Nghiep Tran and Atsuhiro Takasu (2022),
 MEIM: Multi-partition Embedding Interaction Beyond Block Term Format for Efficient and Expressive Link Prediction,
-Proceedings of the International Joint Conference on Artificial Intelligence (IJCAI'22).
+In Proceedings of the International Joint Conference on Artificial Intelligence (IJCAI'22).
 """
 
 import time
@@ -628,7 +628,12 @@ class Quaternion(MEI):
         """
         Main logic: compute the score.
 
-        For quaternion, unitnorm rowrel embedding is important, with hard constraint or soft rowrelnorm_c constraint.
+        Relation unit norm is important, with hard constraint unitnorm rowrel or soft constraint rowrelnorm_c = 1.
+
+        Quaternion embedding was proposed in several papers, one of the first is:
+        Hung-Nghiep Tran and Atsuhiro Takasu (2019),
+        Analyzing Knowledge Graph Embedding Methods from a Multi-Embedding Interaction Perspective,
+        In Proceedings of DSI4 at EDBT/ICDT'19.
 
         Input: tensor in batch: (batch,) of indices (1-hot vector)
         :return: tensor in batch: score: (batch, num_ent)

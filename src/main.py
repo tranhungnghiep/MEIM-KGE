@@ -16,7 +16,7 @@ import random
 import numpy as np
 import torch
 
-from models import MEIM, MEI, DistMult, CP, CPh, SimplE, ComplEx, Quaternion, W2V, W2Vh, Random
+from models import MEIM, MEI, DistMult, CP, CPh, SimplE, ComplEx, RotatE, Quaternion, W2V, W2Vh, Random
 from experiments import Experiment
 import utils
 
@@ -132,11 +132,11 @@ def get_parser():
     parser.add_argument('--ortho_droprate_mr', default=.0, type=float, help='droprate for mr in orthogonal loss computation: .0')
 
     parser.add_argument('--lambda_rowrelnorm', default=.0, type=float, help='weight of rowrel norm loss to push rowrel norm in addition to push mr ortho: .0, 1e-7 ... 1e0, -1 (= lambda_ortho), -2 (0.1 lambda_ortho)')
-    parser.add_argument('--rowrelnorm_c', default=1., type=float, help='rowrel norm distance from c: 1.0 for rowrel unitnorm, 0.0 for small rowrel norm; e.g., soft transx and soft quaternion use rowrelnorm_c==1.0 with large lambda_rowrelnorm')
+    parser.add_argument('--rowrelnorm_c', default=1., type=float, help='rowrel norm distance from c: 1.0 for rowrel unitnorm, 0.0 for small rowrel norm; e.g., soft transx, soft rotate and soft quaternion use rowrelnorm_c==1.0 with large lambda_rowrelnorm')
     parser.add_argument('--rowrelnorm_p', default=3., type=float, help='rowrel pnorm: 3.0 for nuclear n3, 2.0 for frobenius l2, 1.0 for sparse l1')
     parser.add_argument('--rowrelnorm_droprate_r', default=.0, type=float, help='droprate for r in soft unitnorm rowrel loss computation: .0')
 
-    parser.add_argument('--constraint', default='', type=str, help='constraint input entity emb: "", nonneg, unitnorm, minmaxnorm...; e.g., transx uses constraint==unitnorm and to_constrain==colent, quaternion uses constraint==unitnorm and to_constrain==rowrel')
+    parser.add_argument('--constraint', default='', type=str, help='constraint input entity emb: "", nonneg, unitnorm, minmaxnorm...; e.g., transx uses constraint==unitnorm and to_constrain==colent, rotate and quaternion use constraint==unitnorm and to_constrain==rowrel')
     parser.add_argument('--to_constrain', default='', type=str, help='which emb and dimension to constrain: "", rowent, colent, fullent..., rowrel, colrel, fullrel..., rowent_rowrel...; (note that here col is K dim, row is C dim)')
 
     parser.add_argument('--shift_score', default=0, type=int, help='score +y: 0')
@@ -246,6 +246,7 @@ def autoupdate_config(config):
         'CPh': CPh,
         'SimplE': SimplE,
         'ComplEx': ComplEx,
+        'RotatE': RotatE,
         'Quaternion': Quaternion,
         'W2V': W2V,
         'W2Vh': W2Vh,

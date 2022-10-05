@@ -620,6 +620,9 @@ class ComplEx(MEI):
         return score
 
 
+RotatE = ComplEx  # alias, remember to use relation unit norm with hard constraint or soft constraint.
+
+
 class Quaternion(MEI):
     def __init__(self, data, config):
         super().__init__(data, config)

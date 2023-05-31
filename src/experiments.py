@@ -73,17 +73,33 @@ class Experiment(object):
             self.logger.info('%s\n' % self.data.data_str)
 
     def configure(self):
+        # https://pytorch.org/docs/stable/notes/randomness.html
+        # Completely reproducible results are not guaranteed across PyTorch releases, individual commits, or different platforms. 
+        # Furthermore, results may not be reproducible between CPU and GPU executions, even when using identical seeds.
+        # These steps are to reduce nondeterministic behavior for a specific platform, device, and PyTorch release.
+        
         # Re-set random seed for each new experiment
         random.seed(self.config.seed)
         np.random.seed(self.config.seed)
         torch.manual_seed(self.config.seed)
+        # No need, torch.manual_seed() already set these cuda seeds: no effect
+        # torch.cuda.manual_seed(self.config.seed)
+        # torch.cuda.manual_seed_all(self.config.seed)  # if using multi-GPU
+        os.environ['PYTHONHASHSEED'] = str(self.config.seed)  # no effect
+
         # tf.set_random_seed(self.config.seed)
         # tf.random.set_seed(self.config.seed)
 
         # deterministic gpu
         if self.config.deterministic:
-            torch.backends.cudnn.deterministic = True
             torch.backends.cudnn.benchmark = False
+            torch.backends.cudnn.deterministic = True
+            torch.use_deterministic_algorithms(True)  # no effect
+
+        # Backward compatibility:
+        # tf32 (19 bits, Ampere GPU data type): default True in torch 1.7-1.11, default False since 1.12
+        torch.backends.cuda.matmul.allow_tf32 = True
+        torch.backends.cudnn.allow_tf32 = True
 
         # GPU config
         os.environ["CUDA_VISIBLE_DEVICES"] = str(self.config.gpu)
